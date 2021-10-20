@@ -11,15 +11,18 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const modalBtnClose = document.querySelectorAll(".modal-btn__close");
+const modalBtnClose = document.querySelector(".modal-btn__close");
+//===========================================================================================
 
-// launch modal event
-// Boucle, pour chaque bouton au clique faire apparaître le modal
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// DOM Elements <input> for form
+const firstNameError = document.getElementById('firstNameError');
+const lastNameError = document.getElementById('lastNameError');
+const emailError = document.getElementById('emailError');
+const birthdateError = document.getElementById('birthdateError');
+const quantityError = document.getElementById('quantityError');
+//===========================================================================================
 
-// Boucle, pour chaque bouton au clique faire apparaître le modal
-modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
-
+/* FONCTIONS */
 // launch modal form
 function launchModal() {
   // Prend le modal pour le faire apparaître
@@ -27,7 +30,29 @@ function launchModal() {
 }
 
 function closeModal() {
+  // Prend la classe du modal pour le faire disparître
   modalbg.style.display = "none";
 }
+//===========================================================================================
+
+// launch modal event
+// Boucle, pour chaque bouton au clique faire apparaître le modal
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// Evenement pour fermer le modal
+// modalBtnClose.addEventListener("click", e => modalbg.style.display = "none");
+modalBtnClose.addEventListener("click", closeModal);
+
+
+email.addEventListener("keyup", event => {
+  if(email.validity.typeMismatch){
+    email.setCustomValidity("J'attends un e-mail, mon cher !");
+  }
+  else{
+    email.setCustomValidity("");
+  }
+})
+
+
 
 
