@@ -1,3 +1,6 @@
+const $signInForm = document.querySelector(".sign-in-form");
+
+//FAIRE LE RESPONSIVE ============================== IMPORTANT
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -30,7 +33,7 @@ const birthdateError = document.getElementById('birthdateError');
 const quantityError = document.getElementById('quantityError');
 //===========================================================================================
 
-// LES MESSAGES D'ERREURS A IMPLEMENTER
+// LES MESSAGES D'ERREURS A IMPLEMENTER AJOUTER COULER ROUGE
 const arrMessageError = [
   "Veuillez entrer 2 caractères ou plus pour le champ du prénon.", 
   "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
@@ -61,25 +64,30 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-function checkFirstName() {
-  if(!firstName.value){
+function checkInputForm() {
+  if(!firstName.value || firstName.value.length < 2){
     console.log("Hello")
   }
 };
-
 //===========================================================================================
 
 
 
 
 
-email.addEventListener("keyup", event => {
-  if(email.validity.typeMismatch){
-    email.setCustomValidity("J'attends un e-mail, mon cher !");
-  }
-  else{
-    email.setCustomValidity("");
-  }
+
+// email.addEventListener("keyup", event => {
+//   if(email.validity.typeMismatch){
+//     email.setCustomValidity("J'attends un e-mail, mon cher !");
+//   }
+//   else{
+//     email.setCustomValidity("");
+//   }
+// })
+
+$signInForm.addEventListener("submit", event => {
+  event.preventDefault();
+  checkInputForm()
 })
 
 
