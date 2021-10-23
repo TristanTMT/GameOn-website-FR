@@ -70,10 +70,8 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
-                  pattern="[A-Za-z]"
                 /><br>
-                <div id="firstNameError"></div> <!--MESSAGE ERREUR-->
+                <div id="firstNameError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
               <div
                 class="formData">
@@ -83,10 +81,8 @@
                   type="text"
                   id="last"
                   name="last"
-                  minlength="2"
-                  pattern="[A-Za-z]"
                 /><br>
-                <div id="lastNameError"></div> <!--MESSAGE ERREUR-->
+                <div id="lastNameError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
               <div
                 class="formData">
@@ -96,10 +92,9 @@
                   type="email"
                   id="email"
                   name="email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
                   placeholder="mplokijun@gmail.com"
                 /><br>
-                <div id="emailError"></div> <!--MESSAGE ERREUR-->
+                <div id="emailError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
               <div
                 class="formData">
@@ -110,13 +105,13 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
-                <div id="birthdateError"></div> <!--MESSAGE ERREUR-->
+                <div id="birthdateError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <div id="quantityError"></div> <!--MESSAGE ERREUR-->
+                <input type="number" class="text-control" id="quantity" name="quantity">
+                <div id="quantityError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
@@ -188,6 +183,7 @@
                   Portland</label
                 >
               </div>
+              <div id="checkedCityError" class="errorCss"></div> <!--MESSAGE ERREUR-->
 
               <div
                 class="formData">
@@ -201,7 +197,7 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <div id="lastNameError"></div> <!--MESSAGE ERREUR-->
+                <div id="CGUError" class="errorCss"></div> <!--MESSAGE ERREUR-->
                 <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
@@ -220,10 +216,17 @@
           </div>
         </div>
       </div>
+
+      <div class="section-modal-message-end">
+        <div class="modal-message-end-content">
+          <p class="modal-message-end-text">Merci ! Votre réservation a été reçue.</p>
+          <button class="modal-message-end-button modal-btn__close">Fermer</button>
+        </div>
+      </div>
     </main>
     <footer>
       <p class="copyrights">
-        Copyright 2014 - 2020, GameOn Inc.
+        Copyright 2014 - 2021, GameOn Inc.
       </p>
     </footer>
     <script src="modal.js"></script>
