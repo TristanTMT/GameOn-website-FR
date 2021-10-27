@@ -1,7 +1,6 @@
 // Target le formulaire par son ID
 const $signInForm = document.querySelector("#sign-in-form");
 
-//FAIRE LE RESPONSIVE ============================== IMPORTANT
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
