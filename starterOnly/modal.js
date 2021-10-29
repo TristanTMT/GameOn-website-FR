@@ -29,7 +29,8 @@ const email = document.getElementById('email');
 const birthdate = document.getElementById('birthdate');
 const quantity = document.getElementById('quantity');
 const cgu = document.getElementById('checkbox1');
-// TABLEAU POUR TOUTES LES VILLES
+
+// TABLEAU POUR TOUTES LES VILLES boutons radios
 const checkboxCity = [
   document.getElementById("location1"),
   document.getElementById("location2"),
@@ -38,7 +39,6 @@ const checkboxCity = [
   document.getElementById("location5"),
   document.getElementById("location6"),
 ];
-//===========================================================================================
 //===========================================================================================
 
 // DOM Elements <div> for form ERROR
@@ -124,15 +124,13 @@ const checkedEmail = () => {
     }
     else {
       emailError.textContent = "Veuillez entrer une adresse mail"
-      emailError.style.display = "none";
-      email.style.background = ""
-      return true;
+      email.style.background = "#FFBABA"
+      return false;
     }
 };
 // //===========================================================================================
 
-// Vérification de la date d'anniversaire
-
+// Transformer la date pour obtenir l'âge en annéz
 const getAgeInYears = () => {
   const today = new Date();
   const birthdayDate = new Date(birthdate.value);
@@ -141,8 +139,7 @@ const getAgeInYears = () => {
 
   return age;
 };
-//===========================================================================================
-
+// Vérification de la date d'anniversaire
 const checkedBirthdate = () => {
     if(!birthdate.value){
       birthdateError.textContent = "Vous devez entrer votre date de naissance."
@@ -164,7 +161,6 @@ const checkedBirthdate = () => {
 // //===========================================================================================
 
 // Vérification de la quantité
-
 const checkedQuantity = () => {
     if(!quantity.value){
       quantityError.textContent = "Veuillez entrer un nombre en 0 et 99."
@@ -209,19 +205,19 @@ const checkedCGU = () => {
 };
 
 //===========================================================================================
+
+//Fonction pour ouvrir le modal de fin
 function launchModalEnd(){
-  console.log("Hello");
-  console.log("====");
   modalbgEnd.style.display = "flex";
 };
-
+//Fonction pour fermer le modal de fin
 function closeEndModal(){
   modalbgEnd.style.display = "none";
 };
 
 btnModalEnd.addEventListener("click", closeEndModal);
 
-
+//Permet de valider le formulaire et envoyer les données envoyées par l'utilisateur
 $signInForm.addEventListener("submit", event => {
   // Permet de ne pas renvoyer sur une nouvelle page vide
   event.preventDefault();

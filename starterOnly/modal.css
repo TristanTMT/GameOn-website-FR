@@ -550,6 +550,18 @@ footer {
   
 }
 
+@media (max-width: 376px) {
+  .hero-content{
+    min-width: 300px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px){
+  .hero-headline{
+    font-size: 5rem;
+  }
+}
+
 .errorCss {
   display: block;
   color: #fe142f;
