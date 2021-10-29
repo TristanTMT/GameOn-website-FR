@@ -71,8 +71,9 @@
                   id="first"
                   name="first"
                   data-error-visible="false"
+                  onkeyup="checkFirstName()"
                 /><br>
-                <div id="firstNameError" class="errorCss"></div> <!--MESSAGE ERREUR-->
+                <div id="firstNameError" class=""></div> <!--MESSAGE ERREUR-->
               </div>
               <div
                 class="formData">
@@ -82,6 +83,7 @@
                   type="text"
                   id="last"
                   name="last"
+                  onkeyup="checkedLastName()"
                 /><br>
                 <div id="lastNameError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
@@ -94,6 +96,7 @@
                   id="email"
                   name="email"
                   placeholder="mplokijun@gmail.com"
+                  onkeyup="checkedEmail()"
                 /><br>
                 <div id="emailError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>
@@ -105,6 +108,7 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  onkeyup="checkedBirthdate()"
                 /><br>
                 <div id="birthdateError" class="errorCss"></div> <!--MESSAGE ERREUR-->
               </div>

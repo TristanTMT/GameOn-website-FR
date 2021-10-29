@@ -41,7 +41,7 @@ const checkboxCity = [
 //===========================================================================================
 //===========================================================================================
 
-// DOM Elements <input> for form ERROR
+// DOM Elements <div> for form ERROR
 const firstNameError = document.getElementById('firstNameError');
 const lastNameError = document.getElementById('lastNameError');
 const emailError = document.getElementById('emailError');
@@ -52,18 +52,6 @@ const cguError = document.getElementById("CGUError");
 
 const inputStyleError = document.getElementsByTagName("input");
 //===========================================================================================
-
-// LES MESSAGES D'ERREURS A IMPLEMENTER AJOUTER COULER ROUGE
-const arrMessageError = [
-  "Veuillez entrer 2 caractères ou plus pour le champ du prénon.", 
-  "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
-  "J'attends un e-mail, mon cher !",
-  "Vous devez entrer votre date de naissance.",
-  "Vous devez choisir une ville.",
-  "Vous devez vérifier que vous acceptez les termes et conditions.",
-];
-//===========================================================================================
-
 
 // launch modal event
 // Boucle, pour chaque bouton au clique faire apparaître le modal
@@ -85,58 +73,63 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Vérification du prénom
-
 const checkFirstName = () => {
-  if(!firstName.value || firstName.value.length < 2){
-    firstNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
-    firstName.style.background = "#FFBABA"
-    return false;
-    // firstNameError.parentElement.setAttribute("data-error-visible", "true")
-  }
-  else if (firstName.value) {
-    firstNameError.style.display = "none";
-    firstName.style.background = ""
-    return true;
-  }
-};
+  //L'évènement keyup se déclenche lorsque qu'une touche du clavier qui a été pressée est relâchée.
+    if(firstName.value.length < 3) {
+      firstNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le prénom."
+      firstNameError.classList.add('errorCss')
+      firstName.style.background = "#FFBABA"
+      return false
+    }
+    else {
+      firstNameError.textContent = ""
+      firstNameError.classList.remove('erroCss')
+      firstName.style.background = "";
+      return true
+    }
+}
+// //===========================================================================================
 
-// Vérification du nom de famille
-
+// // Vérification du nom de famille
 const checkedLastName = () => {
-  if(!lastName.value || lastName.value.length < 2){
-    lastNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le nom de famille."
-    lastName.style.background = "#FFBABA"
-    return false;
-  }
-  else {
-    lastNameError.style.display = "none";
-    lastName.style.background = ""
-    return true;
-  }
+    if(!lastName.value || lastName.value.length < 2){
+      lastNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le nom de famille."
+      lastName.style.background = "#FFBABA";
+      lastNameError.classList.add("errorCss");
+      return false;
+    }
+    else {
+      lastNameError.textContent = ""
+      lastName.style.background = ""
+      lastNameError.classList.remove("errorCss")
+      return true;
+    }
 };
+// //===========================================================================================
 
-// Vérification de l'email
+// // Vérification de l'email
 
 const checkedEmail = () => {
   const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if(email.value.match(regexEmail)){
-    emailError.style.display = "none"
-    email.style.background = ""
-    return true;
-  }
-  else if(!email.value){
-    console.log('email vide');
-    emailError.textContent = "Veuillez entrer une adresse mail valide."
-    email.style.background = "#FFBABA"
-    return false;
-  }
-  else {
-    emailError.style.display = "none";
-    email.style.background = ""
-    return true;
-  }
+
+    if(email.value.match(regexEmail)){
+      emailError.style.display = "none"
+      email.style.background = ""
+      return true;
+    }
+    else if(!email.value){
+      emailError.textContent = "Veuillez entrer une adresse mail."
+      email.style.background = "#FFBABA"
+      return false;
+    }
+    else {
+      emailError.textContent = "Veuillez entrer une adresse mail"
+      emailError.style.display = "none";
+      email.style.background = ""
+      return true;
+    }
 };
+// //===========================================================================================
 
 // Vérification de la date d'anniversaire
 
@@ -148,41 +141,43 @@ const getAgeInYears = () => {
 
   return age;
 };
+//===========================================================================================
 
 const checkedBirthdate = () => {
-  if(!birthdate.value){
-    birthdateError.textContent = "Vous devez entrer votre date de naissance."
-    birthdate.style.background = "#FFBABA"
-    return false;
-  }
-  else if( getAgeInYears() < 12 ) {
-    console.log('Il faut avoir plus de 12 ans');
-    birthdateError.textContent = "Il faut avoir plus de 12 ans"
-    birthdate.style.background = "#FFBABA"
-    return false;
-  }
-  else {
-    birthdateError.style.display = "none";
-    birthdate.style.background = ""
-    return true;
-  }
+    if(!birthdate.value){
+      birthdateError.textContent = "Vous devez entrer votre date de naissance."
+      birthdate.style.background = "#FFBABA"
+      return false;
+    }
+    else if( getAgeInYears() < 3 ) {
+      // console.log('Il faut avoir plus de 3 ans');
+      birthdateError.textContent = "Il faut avoir plus de 3 ans"
+      birthdate.style.background = "#FFBABA"
+      return false;
+    }
+    else {
+      birthdateError.style.display = "none";
+      birthdate.style.background = ""
+      return true;
+    }
 };
-//===========================================================================================
+// //===========================================================================================
 
 // Vérification de la quantité
 
 const checkedQuantity = () => {
-  if(!quantity.value){
-    quantityError.textContent = "Veuillez entrer un nombre en 0 et 99."
-    quantity.style.background = ""
-    return false;
-  }
-  else {
-    quantityError.style.display = "none";
-    quantity.style.background = ""
-    return true;
-  }
+    if(!quantity.value){
+      quantityError.textContent = "Veuillez entrer un nombre en 0 et 99."
+      quantity.style.background = ""
+      return false;
+    }
+    else {
+      quantityError.style.display = "none";
+      quantity.style.background = ""
+      return true;
+    }
 };
+//===========================================================================================
 
 // Vérification de le ville
 
@@ -196,6 +191,7 @@ const checkedCity = () => {
     return true;
   }
 };
+//===========================================================================================
 
 // Vérification des conditions générales
 
@@ -230,8 +226,11 @@ $signInForm.addEventListener("submit", event => {
   // Permet de ne pas renvoyer sur une nouvelle page vide
   event.preventDefault();
 
-  if( checkFirstName() && checkedLastName() && checkedEmail() && checkedBirthdate() && checkedQuantity() && checkedCity() && checkedCGU() ){
-    
+  //Stocker dans une variable permet de verifier toutes les fonction en même temps, sinon execute les fonction un à un
+  let first = checkFirstName(), second = checkedLastName(), email = checkedEmail(), birthdate = checkedBirthdate(), quantity = checkedQuantity(),
+  city = checkedCity(), cgu = checkedCGU()
+
+  if( first && second && email && birthdate && quantity && city && cgu){
     closeModal();
     launchModalEnd();
     /* La méthode HTMLFormElement.reset() restaure les valeurs par défaut des éléments du formulaire.
@@ -239,9 +238,7 @@ $signInForm.addEventListener("submit", event => {
     document.getElementById("sign-in-form").reset();
     return true;
   }
-  
 })
 
 
-
-
+ 
