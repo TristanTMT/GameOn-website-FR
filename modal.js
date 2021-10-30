@@ -17,7 +17,7 @@ const formData = document.querySelectorAll(".formData");
 const modalBtnClose = document.querySelector(".modal-btn__close");
 //===========================================================================================
 
-// DOM Elements
+// DOM Elements pour le modal de fin
 const modalbgEnd = document.querySelector(".section-modal-message-end");
 const btnModalEnd = document.querySelector(".modal-message-end-button");
 //===========================================================================================
