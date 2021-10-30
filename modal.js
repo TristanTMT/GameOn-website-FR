@@ -1,4 +1,3 @@
-<<<<<<< HEAD:modal.js
 // Target le formulaire par son ID
 const $signInForm = document.querySelector("#sign-in-form");
 
@@ -476,7 +475,4 @@ $signInForm.addEventListener("submit", event => {
     return true;
   }
 })
-
-
->>>>>>> 5cd60f9fc783183ed49c094c79d97f4c420bfc60:starterOnly/modal.js
  
